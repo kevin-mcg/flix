@@ -18,6 +18,19 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+      <h1>Flix</h1>
+    </header>
+
+    <div class="content">
+      <%= yield %>
+    </div>
+
+    <footer>
+      <h1>
+        KMcG
+        <%= Time.now.year %>
+      </h1>
+    </footer>
   </body>
 </html>
