@@ -3,13 +3,14 @@
     <li>
       <%= m.title %>
       (<%= m.rating %>):
-      <%= number_to_currency(m.total_gross, precision: 0) %>
+      <%# number_to_currency(m.total_gross, precision: 0) %>
+      <%= total_gross(m) %>
     </li>
     <p>
-      <%= m.description %>
+      <%= truncate(m.description, length: 40, separator: ' ') %>
     </p>
     <p>
-      <%= m.released_on %>
+      <%= year_of(m) %>
     </p>
   <% end %>
 </ul>
