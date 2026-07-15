@@ -15,12 +15,4 @@ module MoviesHelper
   def displayed_movies
     Movie.released.size
   end
-
-  def average_stars(movie)
-    if movie.average_stars.zero?
-      "No reviews"
-    else
-      movie.average_stars
-    end
-  end
 end
