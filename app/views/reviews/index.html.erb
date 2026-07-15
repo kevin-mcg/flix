@@ -1,17 +1,4 @@
-<!-- <h1>Reviews for <%= @movie.title %></h1> -->
 <h1>Reviews for <%= link_to @movie.title, @movie %></h1>
-
-<!-- My version
-<ul>
-  <% @movie.reviews.each do |r| %>
-    <li>
-      <%= pluralize(r.stars, "star") %> by <%= r.name %>:
-      <%= r.comment %><br>
-      <%= time_ago_in_words(r.created_at) %> ago
-    </li>
-  <% end %>
-</ul>
--->
 
 <ul class="reviews">
   <% @reviews.each do |review| %>
@@ -26,6 +13,10 @@
       </p>
       <p>
         <%= review.comment %>
+      </p>
+      <p>
+        <%= link_to "Delete", movie_review_path(@movie, review), class: "button",
+                data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
       </p>
     </li>
   <% end %>
