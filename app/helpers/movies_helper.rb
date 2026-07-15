@@ -11,4 +11,8 @@ module MoviesHelper
     # movie.released_on.strftime('%Y')
     movie.released_on.year
   end
+
+  def displayed_movies
+    Movie.released.size
+  end
 end
