@@ -13,6 +13,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    @user.email = user_params[:email].downcase
     if @user.save
       redirect_to @user, notice: "Thanks for signing up!"
     else
