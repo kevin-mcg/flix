@@ -6,8 +6,8 @@
 
 <%= form_with(url: session_path) do |s| %>
 
-  <%= s.label :email %>
-  <%= s.email_field :email, autofocus: true, required: true %>
+  <%= s.label :email_or_username %>
+  <%= s.text_field :email_or_username, autofocus: true, required: true %>
 
   <%= s.label :password %>
   <%= s.password_field :password, required: true %>
