@@ -16,5 +16,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
+    reset_session
+    redirect_to movies_path, status: :see_other
   end
 end

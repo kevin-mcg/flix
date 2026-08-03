@@ -39,6 +39,7 @@ class UsersController < ApplicationController
   def destroy
     @user = User.find(params[:id])
     @user.destroy
+    session[:user_id] = nil
     # The alert msg does not show using alert or notice...
     redirect_to @user, status: :see_other,
       alert: "Account successfully deleted!"
