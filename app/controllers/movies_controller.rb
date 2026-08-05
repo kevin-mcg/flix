@@ -1,4 +1,8 @@
 class MoviesController < ApplicationController
+
+  before_action :require_signin, except: [:index, :show]
+  before_action :require_admin, except: [:index, :show]
+
   def index
     # No future films will be shown FYI
     @movies = Movie.released

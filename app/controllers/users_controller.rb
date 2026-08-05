@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
 
   before_action :require_signin, except: [:new, :create]
-  before_action :require_correct_user, only: [:edit, :update, :destroy]
+  before_action :require_correct_user, only: [:edit, :update]
+  before_action :require_admin, only: [:destroy]
 
   def index
     @users = User.all
@@ -39,10 +40,11 @@ class UsersController < ApplicationController
 
 
   def destroy
+    @user = User.find(params[:id])
     @user.destroy
     session[:user_id] = nil
     # The alert msg does not show using alert or notice...
-    redirect_to @user, status: :see_other,
+    redirect_to root_url, status: :see_other,
       alert: "Account successfully deleted!"
   end
 
