@@ -1,4 +1,5 @@
 class ReviewsController < ApplicationController
+  before_action :require_signin
   before_action :set_movie
 
   def index
@@ -11,8 +12,9 @@ class ReviewsController < ApplicationController
 
   def create
     @review = @movie.reviews.new(review_params)
+    @review.user = current_user
     if @movie.save
-      redirect_to movie_path(@movie)
+      redirect_to movie_reviews_path(@movie)
     else
       render :new, status: :unprocessable_entity
     end
@@ -31,6 +33,6 @@ class ReviewsController < ApplicationController
   end
 
   def review_params
-    params.require(:review).permit(:name, :comment, :stars)
+    params.require(:review).permit(:comment, :stars)
   end
 end
