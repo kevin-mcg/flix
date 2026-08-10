@@ -27,5 +27,9 @@
   <%= m.label :image_file_nom %>
   <%= m.text_field :image_file_name %>
 
+  <div class="checkboxes">
+    <%= m.collection_check_boxes(:genre_ids, Genre.order(:name), :id, :name) %>
+  </div>
+
   <%= m.submit %>
 <% end %>
