@@ -10,4 +10,5 @@ Admin users have elevated permissions like editing/deleting movies & users.
 Run `bundle install` to install the needed gems
 
 * Database creation
-rails db:seed
+
+`rails db:seed`
